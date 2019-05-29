@@ -1,0 +1,38 @@
+#container {
+  margin-left: 20px;
+}
+article {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+
+h4 {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+article > div {
+  font-size: 20px;
+}
+
+section {
+  margin-top: 15px;
+  color: rgb(82, 81, 81);
+}
+
+section::before {
+  content: 'Comments:';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+dd {
+  font-style: italic;
+}
