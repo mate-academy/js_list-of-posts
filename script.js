@@ -1,14 +1,13 @@
-const posts = fetch('https://jsonplaceholder.typicode.com/posts')
+const postsResponse = fetch('https://jsonplaceholder.typicode.com/posts')
   .then(response => response.json());
 
-const users = fetch('https://jsonplaceholder.typicode.com/users')
+const usersResponse = fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => response.json());
 
-const comments = fetch('https://jsonplaceholder.typicode.com/comments')
+const commentsResponse = fetch('https://jsonplaceholder.typicode.com/comments')
   .then(response => response.json());
 
-
-Promise.all([posts, users, comments])
+Promise.all([postsResponse, usersResponse, commentsResponse])
   .then(([posts, users, comments]) => {
     const container = document.querySelector('#container');
     posts.forEach(post => {
@@ -21,7 +20,7 @@ Promise.all([posts, users, comments])
       body.innerText = post.body;
 
       const userName = document.createElement('i');
-      userName.innerText = users[post.userId - 1].name;
+      userName.innerText = users.find(user => user.id === post.userId).name;
 
       const commentsBlock = document.createElement('div')
       comments.forEach(comment => {
