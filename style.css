@@ -1,0 +1,50 @@
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+#posts {
+  padding: 30px 20px;
+}
+
+.post {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px dashed #1d0101;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.author {
+  font-style: italic;
+  font-size: 15px;
+  color: #3b1313;
+  margin-bottom: 25px;
+}
+
+.content {
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.comments {
+  font-size: 12px;
+  width: 50%;
+ 
+}
+
+.comment {
+  padding: 10px 0;
+  border-bottom: 1px dotted #f3dede;
+  margin-bottom: 20px;
+
+}
+
+.comment__title {
+  font-weight: 700;
+  font-size: 14px;
+}
