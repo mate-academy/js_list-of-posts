@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: cyan;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.table > div {
+  margin-bottom: 100px;
+}
+
+.table > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+p {
+  color: #000;
+  font-size: 18px;
+}
+
+span {
+  color: orange;
+}
+
+h2 {
+  background-color: rgb(38, 161, 75);
+  padding: 15px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.comments {
+  width: 400px;
+  background-color: rgb(10, 76, 131);
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.user {
+   text-align: right;
+}
