@@ -42,7 +42,6 @@ function createPost(title, text, name, email, commentList){
     <address><a href="mailto:${email}">${name}</a></address>`);
 
   commentList.forEach((com) => {
-      const li = document.createElement('li');
       ul.insertAdjacentHTML('beforeend',
         `<li><address>${com.name}</address><br>${com.body}</li>`)
     }
