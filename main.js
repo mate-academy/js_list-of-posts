@@ -61,7 +61,7 @@ let comments = null;
 	      <p>${user.name}</p>
 	      <div>${el.body}</div>
  	      <ul class="post_id_${el.id}">
-		  <span class="show_comments">Show comments:</span>
+		  <button class="show_comments">Show/hide comments</button>
 		  `
 		);
 	  comments.filter(item =>  item.postId === el.id);
