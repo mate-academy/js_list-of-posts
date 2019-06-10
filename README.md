@@ -8,3 +8,6 @@ By requesting https://jsonplaceholder.typicode.com/posts, https://jsonplaceholde
 4) sublist of the post comments, including the name of the author of each comment as well as the comment itself.
 
 Use `XMLHttpRequest` or, if you are comfortable with it, `fetch`.
+
+
+DEMO LINK [- https://s0lm1r.github.io/js_list-of-posts/];
