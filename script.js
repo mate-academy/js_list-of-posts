@@ -1,17 +1,19 @@
 const requests = ['posts', 'users', 'comments'];
-const data = [];
+const data = {};
 
   requests.forEach(function(item){
     const request = new XMLHttpRequest();
-    request.open('GET', `https://jsonplaceholder.typicode.com/${item}`, false);
+    request.open('GET', `https://jsonplaceholder.typicode.com/${item}`);
     request.addEventListener('load', function() {
-    data.push(JSON.parse(this.response));
-    });
+    data[item] = JSON.parse(this.response);
+    if (data.posts && data.users && data.comments) {
+      renderPosts(data.posts, data.users, data.comments);
+    }
+  });
     request.send();
   })
-  const [posts, users, comments] = data;
 
-renderPosts(posts, users, comments);
+  
 
  function renderPosts(posts, users, comments) {
   const postsList = new Posts(document.querySelector('#container'));
