@@ -41,7 +41,7 @@ let comments = null;
   const xhrComments = new XMLHttpRequest();
   xhrComments.open('GET', urlComents, true);
   xhrComments.responseType = 'json';
-  xhrComments.addEventListener('load', ()=> {
+  xhrComments.addEventListener('load', () => {
     comments = xhrComments.response;
    
       if( posts !== null && users !== null && comments !== null) {
