@@ -12,7 +12,7 @@ let comments = null;
   const xhrUsers = new XMLHttpRequest();
   xhrUsers.open('GET', urlUsers, true);
 	xhrUsers.responseType = 'json';
-	xhrUsers.addEventListener('load', ()=>{
+	xhrUsers.addEventListener('load', () =>{
     users = xhrUsers.response.reduce((acc, item) => {
     	acc[item.id] = item;
     	 return acc
