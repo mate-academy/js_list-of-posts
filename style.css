@@ -1,0 +1,19 @@
+body {
+  background: lightblue;
+  margin: 0;
+}
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+}
+
+article {
+	border: 1px solid black;
+}
+
+
