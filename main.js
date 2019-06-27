@@ -64,7 +64,7 @@ let comments = null;
 		  <button class="show_comments">Show/hide comments</button>
 		  `
 		);
-	  comments.filter(item =>  item.postId === el.id);
+	  comments.filter(item => item.postId === el.id);
       article.lastElementChild.insertAdjacentHTML('beforeEnd',
         `
           <li hidden='true'><p>Author:${comments[el.id - 1].name}</p>${comments[el.id -1].body}</li>
