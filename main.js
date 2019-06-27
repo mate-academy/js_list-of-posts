@@ -80,7 +80,7 @@ let comments = null;
   container.onclick = function(event) {
     let target = event.target;
     if( target.className !== 'show_comments') return;
-    target.parentNode.querySelectorAll('li').forEach(el => {
+    target.parentNode.querySelectorAll('li').forEach((el) => {
     if(!el) return;
     el.hidden = !el.hidden;
     })
