@@ -28,7 +28,7 @@ let comments = null;
   const xhrPosts = new XMLHttpRequest();
   xhrPosts.open('GET', urlPosts, true);
   xhrPosts.responseType = 'json';
-  xhrPosts.addEventListener('load', ()=> {
+  xhrPosts.addEventListener('load', () => {
     posts = xhrPosts.response;
      
       if( posts !== null && users !== null && comments !== null) {
