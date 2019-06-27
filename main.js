@@ -38,7 +38,7 @@ let comments = null;
 
   xhrPosts.send();
 
-    const xhrComments = new XMLHttpRequest();
+  const xhrComments = new XMLHttpRequest();
   xhrComments.open('GET', urlComents, true);
   xhrComments.responseType = 'json';
   xhrComments.addEventListener('load', ()=> {
