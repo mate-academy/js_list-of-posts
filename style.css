@@ -1,0 +1,23 @@
+.listOfPosts {
+  padding: 10px;
+}
+
+h2 {
+  background-color: rgb(214, 49, 49);
+  padding: 15px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  width: 100%;
+  margin: 20px;
+}
+
+.comments {
+    background-color: #eee;
+    padding: 5px;
+}
+
+.userName {
+   text-align: right; 
+}
