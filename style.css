@@ -1,0 +1,11 @@
+h3, h6 {
+  color: gray;
+}
+
+.postbody {
+  font-size: 22px;
+}
+
+h6 {
+  font-style: italic;
+}
