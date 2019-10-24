@@ -33,12 +33,9 @@ async function creatingPostsLists() {
                           <p id="commentText">${postCommentsBody[i].body}</p>`;
     }
     
-
-
-    
     divBox.innerHTML = `<div class="ui card five wide column">
                           <div class="image">
-                            <img src="https://source.unsplash.com/400x400/?man,girl">
+                            <img src="https://source.unsplash.com/${Math.round(Math.random() * (410 - 390) + 390)}x${Math.round(Math.random() * (410 - 390) + 390)}/?man,girl,blog,posts,notes,fashion">
                           </div>
                           <div class="content">
                             <div class="header">${postsTitle}</div>
