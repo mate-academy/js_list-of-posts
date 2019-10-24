@@ -63,17 +63,13 @@ strong {
   margin: 0 10px;
 }
 
-.commetsOn {
+.commentsVisible {
   margin: 10px 10px;
 }
 
-.commetsOn strong:hover {
+.commentsVisible strong:hover {
   cursor: pointer;
   color: rgb(129, 129, 129);
-}
-
-.comments {
-  display: none;
 }
 
 ul, li {
