@@ -26,9 +26,9 @@ async function listOfPosts() {
     postString += `<div class="photo"></div>`; 
     postString += `<div class="title"><strong>${posts[i].title}</strong></div>`;
     postString += `<div class="bodyText">${posts[i].body}</div>`;  
-    postString += `<div class="commetsOn"><strong>Watch comments</strong></div>`; 
-    usersComments = '';
     currentComments = comments.filter((id) => id.postId === j); 
+    postString += `<div class="commetsOn"><strong>Watch comments (${currentComments.length})</strong></div>`; 
+    usersComments = '';
     for (let k = 0; k < currentComments.length; k++) {
       if (k === currentComments.length - 1) {
         usersComments += `<p><strong>${currentComments[k].name}</strong>: ${currentComments[k].body}</p>`;
@@ -53,7 +53,7 @@ async function listOfPosts() {
       }
       
       if (getComputedStyle(commentsDiv[i]).display === 'none') {
-        commentsDiv[i].style.display = 'block'; 
+        commentsDiv[i].style.display = 'block';
       } else {
         commentsDiv[i].style.display = 'none';
       }
