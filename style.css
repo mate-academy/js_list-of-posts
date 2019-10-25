@@ -1,0 +1,18 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+.card {
+   margin: 0 auto !important;
+}
+
+.image {
+   text-align: center !important;
+}
+
+.comments {
+   margin: 25px auto !important;
+}
+
