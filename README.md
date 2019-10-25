@@ -7,4 +7,6 @@ By requesting https://jsonplaceholder.typicode.com/posts, https://jsonplaceholde
 3) the name of the author of the post;
 4) sublist of the post comments, including the name of the author of each comment as well as the comment itself.
 
+**Result**
 
+- [DEMO LINK](https://crazynoodl.github.io/js_list-of-posts/)

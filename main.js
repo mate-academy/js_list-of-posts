@@ -12,7 +12,6 @@ async function crearedTable() {
   const listPosts = await fetching(posts);
   const listUsers = await fetching(users);
   const listComments = await fetching(comments);
-  const img = document.querySelector('.content');
 
   for (post of listPosts) {
     const user = listUsers.find(item => item.id === post.userId).name;
@@ -51,7 +50,7 @@ async function crearedTable() {
 
           return 'https://semantic-ui.com/images/avatar2/large/elyse.png';
       }
-      
+
       return num
     };
 
