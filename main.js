@@ -3,7 +3,6 @@ let postsUrl =    'https://jsonplaceholder.typicode.com/posts';
 let usersUrl =    'https://jsonplaceholder.typicode.com/users';
 let commentsUrl = 'https://jsonplaceholder.typicode.com/comments';
 
-console.log(container);
 const connect = (url) => {
   return fetch(url)
     .then(response => response .json());
