@@ -24,7 +24,7 @@ async function creatingPostsLists() {
     const postsBody = posts.body;
     const userName = usersList.find(user => user.id === posts.userId).name;
 
-    const postComments = commentsList.filter(post => post.postId === posts.id);
+    const postComments = commentsList.filter(comment => comment.postId === posts.id);
 
     let dropDownContent = ``;
 
