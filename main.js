@@ -10,8 +10,8 @@ async function getDate(url) {
 Promise.all([getDate('https://jsonplaceholder.typicode.com/posts'), 
 getDate('https://jsonplaceholder.typicode.com/users'), 
 getDate('https://jsonplaceholder.typicode.com/comments')])
-.then(rezult => {
-  const [postsList, usersList, commentsList] = rezult; 
+.then(result => {
+  const [postsList, usersList, commentsList] = result; 
 
   for (let i = 0; i < postsList.length; i++) {
     let currentPost = postsList[i]; 
@@ -48,12 +48,11 @@ function createPost(name, title, body, comments = []) {
   `; 
   let allComments = ''; 
   for (let k = 0; k < comments.length; k++) {
-    if (k === comments.length - 1) {
-      allComments += `<p><strong>${comments[k].name}</strong>: 
+    allComments += `<p><strong>${comments[k].name}</strong>: 
         ${comments[k].body}</p>`;
-    } else {
-      allComments += `<p><strong>${comments[k].name}</strong>: 
-      ${comments[k].body}</p><hr>`;}
+    if (k != comments.length - 1) {
+      allComments += `<hr>`
+    } 
   }
   let mainCommentsDiv = `<div class="comments-main-div" hidden>${allComments}</div>`; 
   postStr += mainCommentsDiv;
