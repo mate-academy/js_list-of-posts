@@ -2,35 +2,33 @@
 
 function getUrl(url){
   return fetch(url)
-      .then(data => data.json())
+      .then(response => response.json())
 }
 
 Promise.all([
       getUrl(' https://jsonplaceholder.typicode.com/posts'),
       getUrl('https://jsonplaceholder.typicode.com/users'),
       getUrl('https://jsonplaceholder.typicode.com/comments')
-  ]).then(data => {
-      createList(data[0], data[1], data[2]);
-    });
+  ]).then(data => createList(data[0], data[1], data[2]));
 
 function createList(posts,users,comments) {
   const container = document.querySelector('#container');
 
-  users.map((item) => {
-    const user = document.createElement('div');
+  users.map((user) => {
+    const userDiv = document.createElement('div');
     const subList = document.createElement('div');
     const userName = document.createElement('h2');
 
     userName.className = 'ui header';
-    container.append(user);
-    userName.innerHTML = item.name;
-    user.append(userName);
-    user.append(subList);
+    container.append(userDiv);
+    userName.innerHTML = user.name;
+    userDiv.append(userName);
+    userDiv.append(subList);
 
     posts.map(post => {
       const commentsList = document.createElement('ul');
 
-      if(post.userId === item.id) {
+      if(post.userId === user.id) {
         const postList = document.createElement('div');
         const postBody = document.createElement('p');
         const postTitle = document.createElement('h3');
