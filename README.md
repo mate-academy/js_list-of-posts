@@ -9,4 +9,4 @@ By requesting https://jsonplaceholder.typicode.com/posts, https://jsonplaceholde
 
 **Result**
 
-- [DEMO LINK](https://crazynoodl.github.io/js_list-of-posts/)
+- [DEMO LINK](https://crazynoodl.github.io/js_list-of-posts/index.html)
