@@ -16,6 +16,8 @@ Promise.all([posts, users, comments])
 let block = document.querySelector('.block');
 posts.forEach(post => {
   let section = document.createElement('section');
+  section.className = 'ui card';
+  section.style.padding = '2%';
   let title = document.createElement('h1');
   title.innerText = post.title;
   let comment = document.createElement('p');
