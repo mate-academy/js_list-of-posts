@@ -4,6 +4,10 @@
   margin-right: auto;
   margin-top: 20px;
 }
-.comments {
-  background-color: yellow;
+.is-displayed {
+  display: none;
+}
+
+.comments:hover {
+  cursor: pointer;
 }
