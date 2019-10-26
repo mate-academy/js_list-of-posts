@@ -1,0 +1,29 @@
+body {
+  margin: 0 auto;
+  font-family: 'Muli', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+h1,
+h5 {
+  text-transform: uppercase;
+}
+
+.wrap {
+  width: 500px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 15px auto;
+}
+
+.comment {
+  background-color: #ccc;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 10px;
+}
