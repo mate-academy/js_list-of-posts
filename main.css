@@ -11,3 +11,7 @@
 .comments:hover {
   cursor: pointer;
 }
+
+.name {
+  text-align: center;
+}

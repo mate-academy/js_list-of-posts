@@ -23,9 +23,7 @@ const fillData = async () => {
                          <img class="img-thumbnail" src="https://www.meme-arsenal.com/memes/9f8982d2fc712953376939b044cfb11a.jpg">
                           <div class="content">
                             <h3 class="header">${item.title}</h3>
-                            <h4 class="name">${users.find(user => user.id === item.userId).name}
-                            <style>.name {text-align:center}</style>
-                            </h4>
+                            <h4 class="name">${users.find(user => user.id === item.userId).name}</h4>
                             <h5 class="description">
                               <p>${item.body}</p>
                             </h5>
