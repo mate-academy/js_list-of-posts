@@ -6,7 +6,7 @@ const connection = (url) => {
 };
 
 const posts = async () => {
-  const [posts, users, comment] = await Promise.all(
+  const [posts, users, comments] = await Promise.all(
     [connection(`https://jsonplaceholder.typicode.com/posts`),
             connection(`https://jsonplaceholder.typicode.com/users`),
             connection(`https://jsonplaceholder.typicode.com/comments`)]);
@@ -38,30 +38,30 @@ const posts = async () => {
                         </div>`;
     wrapper.append(post);
 
-    const comments = document.createElement('div');
-    comments.className = 'extra content';
+    const extraContent = document.createElement('div');
+    extraContent.className = 'extra content';
 
-    comments.innerHTML = `<div class="content">
+    extraContent.innerHTML = `<div class="content">
                             <div class="ui comments">
                               <h3 class="ui dividing header">Comments</h3>
                             </div>
                           </div>`;
-    post.append(comments);
+    post.append(extraContent);
 
-    const pickedCom = comment.filter(item => item.postId === postsValue.id);
+    const pickedCom = comments.filter(item => item.postId === postsValue.id);
 
     for (let i = 0; i < pickedCom.length; i++) {
       const userCom = pickedCom[i].body;
       const titleCom = pickedCom[i].name;
 
       const singleComment = document.createElement('div');
-      singleComment.className = 'comment';
+      singleComment.className = 'comments';
 
       singleComment.innerHTML = `<div class="content">
                                    <div class="ui small feed author">${titleCom}</div>                        
                                   <div class="text">${userCom}</div>
                                  </div>`;
-      comments.append(singleComment);
+      extraContent.append(singleComment);
     }
   });
 };
