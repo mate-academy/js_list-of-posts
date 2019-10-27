@@ -1,0 +1,39 @@
+.post {
+  width: 50%;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  list-style-type: none;
+
+  &__author {
+    &::before {
+      content: "Author: ";
+    }
+  }
+
+}
+
+.author {
+  color: #555;
+  font-style: italic;
+}
+
+.comments {
+  margin-top: 15px;
+  &::before {
+    content: "Comments: ";
+    font-size: 18px;
+    font-style: oblique;
+  }
+}
+
+.comment {
+  &__text {
+    font-size: 12px;
+  }
+  &__author {
+    &::before {
+      content: "by: "
+    }
+  }
+}
