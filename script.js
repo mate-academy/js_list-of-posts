@@ -19,8 +19,18 @@ async function getData() {
 
   for (let post of posts) {
     const user = users.find(user => user.id === post.userId);
-    const currentComments = comments.filter(comment => comment.postId === post.id);
     const listBlock = document.createElement('div');
+    let commentsBlock = ``;
+    
+    for (let comment of comments) {
+      if (comment.postId === post.id) {
+        commentsBlock += `
+          <h4>${comment.name}</h4>
+          <p>${comment.body}</p>
+        `
+      }
+    }
+
     listBlock.className = 'listBlock';
 
     listBlock.innerHTML = `
@@ -28,24 +38,24 @@ async function getData() {
       <p class="text">${post.body}</p>
       <h4 class="userName">${user.name}</h4>
       <h2 class="heading">Comments</h2>
-      <div class="comments">${getComments(currentComments)}</div>
+      <div class="comments">${commentsBlock}</div>
       `;
 
     container.append(listBlock);
   }
 
-  function getComments(items) {
-    let commentsBlock = ``;
+  // function getComments(items) {
+  //   let commentsBlock = ``;
 
-    for (let i = 0; i < items.length; i++) {
-      commentsBlock += `
-        <h4>${items[i].name}</h4>
-        <p>${items[i].body}</p>
-        `
-    }
+  //   for (let i = 0; i < items.length; i++) {
+  //     commentsBlock += `
+  //       <h4>${items[i].name}</h4>
+  //       <p>${items[i].body}</p>
+  //       `
+  //   }
 
-    return commentsBlock;
-  }
+  //   return commentsBlock;
+  // }
 }
 
 getData();
