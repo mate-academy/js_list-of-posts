@@ -43,19 +43,6 @@ async function getData() {
 
     container.append(listBlock);
   }
-
-  // function getComments(items) {
-  //   let commentsBlock = ``;
-
-  //   for (let i = 0; i < items.length; i++) {
-  //     commentsBlock += `
-  //       <h4>${items[i].name}</h4>
-  //       <p>${items[i].body}</p>
-  //       `
-  //   }
-
-  //   return commentsBlock;
-  // }
 }
 
 getData();
