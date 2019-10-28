@@ -1,0 +1,21 @@
+body {
+  background-color: #cccccc;
+}
+
+#posts {
+  list-style: none;
+}
+#posts .post {
+  margin-top: 10px;
+  padding: 1%;
+  width: 50%;
+  border: 3px solid black;
+}
+#posts .post .post-header {
+  font-weight: bold;
+}
+#posts .post .comment-list {
+  width: 50%;
+}
+
+/*# sourceMappingURL=main.css.map */
