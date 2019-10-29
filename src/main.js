@@ -56,23 +56,25 @@ const posts = async () => {
     `;
     post.append(extraContent);
 
-    const pickedCom = comments.filter(item => item.postId === postsValue.id);
-
-    for (let i = 0; i < pickedCom.length; i++) {
-      const userCom = pickedCom[i].body;
-      const titleCom = pickedCom[i].name;
+    let inner = '';
+    const pickedCom = comments.reduce((res, comment) => {
+      if (comment.postId === postsValue.id) {
+        inner += `
+        <div class="content">
+          <div class="ui small feed author">${comment.name}</div>                        
+          <div class="text">${comment.body}</div>
+        </div>
+      `;
+        return res += inner;
+      }
+      return res;
+    }, '');
 
       const singleComment = document.createElement('div');
       singleComment.className = 'comments';
 
-      singleComment.innerHTML = `
-        <div class="content">
-          <div class="ui small feed author">${titleCom}</div>                        
-          <div class="text">${userCom}</div>
-        </div>
-      `;
+      singleComment.innerHTML = inner;
       extraContent.append(singleComment);
-    }
   });
 };
 
