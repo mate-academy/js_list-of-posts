@@ -17,7 +17,11 @@ const init = async () => {
     const comments = await getAll(COMMENTS);
 
     fetchPosts(posts, users, comments);
-    console.log(listOfPosts);
+    let data = Object.keys(listOfPosts[0]);
+    generateTableHead(POSTS_LIST, data);
+    generateTable(POSTS_LIST, listOfPosts);
+
+    addClickListener();
 };
 
 init();
@@ -51,5 +55,50 @@ const appendCommentsToPost = (comments, post) => {
 
     return commentsList;
 };
+
+const generateTableHead = (table, data) => {
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data) {
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text);
+        row.appendChild(th);
+    }
+};
+
+const generateTable = (table, data) => {
+    for (let element of data) {
+        let row = table.insertRow();
+        for (let key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            if (key === 'comments') {
+                let cmnts = element[key];
+                let ul = document.createElement("ul");
+                ul.className = 'list';
+                cell.appendChild(ul);
+                cmnts.forEach(function (name) {
+                    let li = document.createElement("li");
+                    ul.appendChild(li);
+                    li.innerHTML += name;
+                })
+            } else {
+                cell.appendChild(text);
+            }
+        }
+    }
+};
+
+const addClickListener = () => {
+    document.querySelectorAll('.list')
+        .forEach(elem => elem.addEventListener('click', (action) => {
+            const children = action.target.parentElement.querySelector('li');
+            children.hidden = !children.hidden;
+        }));
+};
+
+
+
 
 
