@@ -7,16 +7,16 @@ const getData = (url) => {
 
 const posts = async () => {
   const [posts, users, comments] = await
-    Promise.all(
-    [getData(`https://jsonplaceholder.typicode.com/posts`),
+    Promise.all(    [
+      getData(`https://jsonplaceholder.typicode.com/posts`),
       getData(`https://jsonplaceholder.typicode.com/users`),
       getData(`https://jsonplaceholder.typicode.com/comments`)
     ]);
 
-  const wrapper = document.querySelector('#wrapper');
+  const wrapper = document.querySelector('.wrapper');
   const keys = Object.keys(posts);
 
-  keys.map(item => {
+  keys.forEach(item => {
 
     const post = document.createElement('div');
     post.className = 'ui card';
