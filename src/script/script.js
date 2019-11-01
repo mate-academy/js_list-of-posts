@@ -3,6 +3,7 @@ const POSTS = 'posts';
 const USERS = 'users';
 const COMMENTS = 'comments';
 const POSTS_LIST = document.querySelector('.posts_list');
+const CLICK_TO_READ_COMMENTS = 'click to read comments';
 
 let listOfPosts = [];
 
@@ -73,29 +74,57 @@ const generateTable = (table, data) => {
         for (let key in element) {
             let cell = row.insertCell();
             let text = document.createTextNode(element[key]);
-            if (key === 'comments') {
-                let cmnts = element[key];
-                let ul = document.createElement("ul");
-                ul.className = 'list';
-                cell.appendChild(ul);
-                cmnts.forEach(function (name) {
-                    let li = document.createElement("li");
-                    ul.appendChild(li);
-                    li.innerHTML += name;
-                })
-            } else {
-                cell.appendChild(text);
-            }
+            appendCommentsToTable(cell, text, element[key], key);
         }
     }
+};
+
+const appendCommentsToTable = (cell, text, element, key) => {
+    if (key === 'comments') {
+        let cmnts = element;
+        let ul = document.createElement("ul");
+        appendLiToUl(cmnts, ul);
+        ul.hidden = true;
+        appendSpanClickHere(cell);
+        cell.className = 'list';
+
+        cell.appendChild(ul);
+    } else {
+        cell.appendChild(text);
+    }
+};
+
+const appendLiToUl = (cmnts, ul) => {
+    cmnts.forEach(function (name) {
+        let li = document.createElement("li");
+        ul.appendChild(li);
+        li.innerHTML += name;
+    });
+};
+
+const appendSpanClickHere = (cell) => {
+    let click_here = document.createElement("span");
+    click_here.textContent = CLICK_TO_READ_COMMENTS;
+    cell.appendChild(click_here);
 };
 
 const addClickListener = () => {
     document.querySelectorAll('.list')
         .forEach(elem => elem.addEventListener('click', (action) => {
-            const children = action.target.parentElement.querySelector('li');
-            children.hidden = !children.hidden;
+            showComments(action);
         }));
+};
+
+const showComments = (action) => {
+    const click_here = action.currentTarget.children[0];
+    const children = action.currentTarget.children[1];
+    if (children.hidden === true) {
+        click_here.hidden = true;
+        children.hidden = false;
+    } else {
+        click_here.hidden = false;
+        children.hidden = true;
+    }
 };
 
 
