@@ -36,23 +36,23 @@ const buildPostsList = async () => {
         line.append(postComments);
 
         postCommentsRows.forEach((comment) => {
-            const postCommentsLine =  document.createElement('li');
-            const commentTitle = document.createElement('p');
-            const commentBody = document.createElement('p');
-            const commentAuthor = document.createElement('p');
+          const postCommentsLine =  document.createElement('li');
+          const commentTitle = document.createElement('p');
+          const commentBody = document.createElement('p');
+          const commentAuthor = document.createElement('p');
 
-            commentTitle.className = 'comment-title';
-            commentBody.className  = 'comment-body';
-            commentAuthor.className  = 'comment-author';
+          commentTitle.className = 'comment-title';
+          commentBody.className  = 'comment-body';
+          commentAuthor.className  = 'comment-author';
 
-            postComments.append(postCommentsLine);
-            postCommentsLine.append(commentTitle);
-            commentTitle.append(comment.name);
-            postCommentsLine.append(commentBody);
-            commentBody.append(comment.body);
+          postComments.append(postCommentsLine);
+          postCommentsLine.append(commentTitle);
+          commentTitle.append(comment.name);
+          postCommentsLine.append(commentBody);
+          commentBody.append(comment.body);
 
-            postCommentsLine.append(commentAuthor);
-            commentAuthor.append(`Author: ${comment.email}`)
+          postCommentsLine.append(commentAuthor);
+          commentAuthor.append(`Author: ${comment.email}`)
         })
       })
       });
