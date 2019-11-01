@@ -1,14 +1,16 @@
-
-const fetchData = async function (type) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/${type}`);
+const fetchData = async function (url) {
+    const response = await fetch(url);
 
     return await response.json();
 };
 
+
 const buildPostsList = async () => {
-    const posts = await fetchData('posts');
-    const users = await fetchData('users');
-    const comments = await fetchData('comments');
+    Promise.all([fetchData('https://jsonplaceholder.typicode.com/posts'),
+        fetchData('https://jsonplaceholder.typicode.com/users'),
+        fetchData('https://jsonplaceholder.typicode.com/comments')])
+        .then(result => {
+            const [posts, users, comments] = result;
 
     const listContainer = document.getElementById('posts');
 
@@ -17,9 +19,9 @@ const buildPostsList = async () => {
         const postTitle = document.createElement('p');
         const postBody = document.createElement('p');
         const postAuthor = document.createElement('p');
-        const postAuthorRow = users.find((user) => { return(user.id === post.userId) });
+        const postAuthorRow = users.find(user => user.id === post.userId);
 
-        const postCommentsRows = comments.filter((comment) => { return(comment.postId === post.id) });
+        const postCommentsRows = comments.filter(comment => comment.postId === post.id);
         const postComments = document.createElement('ul');
 
         postTitle.className = 'post-title';
@@ -61,6 +63,7 @@ const buildPostsList = async () => {
             commentAuthor.append(`Author: ${comment.email}`)
         })
     })
+        });
 };
 
 
