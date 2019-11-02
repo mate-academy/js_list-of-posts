@@ -9,9 +9,12 @@ function fetching(url) {
 }
 
 async function crearedTable() {
-  const listPosts = await fetching(posts);
-  const listUsers = await fetching(users);
-  const listComments = await fetching(comments);
+  const [listPosts, listUsers, listComments] = await Promise.all
+    ([
+      fetching(posts),
+      fetching(users),
+      fetching(comments)
+    ]);
 
   for (post of listPosts) {
     const user = listUsers.find(item => item.id === post.userId).name;
@@ -26,32 +29,20 @@ async function crearedTable() {
     const cardComments = document.createElement('div')
 
     function generatorAvatar() {
-      let num = Math.ceil(Math.random() * 10)
+      let num = Math.ceil(Math.random() * 5)
 
       switch (num) {
         case 1:
-        case 2:
-
           return 'https://semantic-ui.com/images/avatar2/large/kristy.png';
-        case 3:
-        case 4:
-
+        case 2:
           return 'https://semantic-ui.com/images/avatar2/large/matthew.png';
-        case 5:
-        case 6:
-
+        case 3:
           return 'https://semantic-ui.com/images/avatar2/large/molly.png';
-        case 7:
-        case 8:
-
+        case 4:
           return 'https://semantic-ui.com/images/avatar/large/jenny.jpg';
-        case 9:
-        case 10:
-
+        default:
           return 'https://semantic-ui.com/images/avatar2/large/elyse.png';
       }
-
-      return num
     };
 
     content.classList.add('content');
