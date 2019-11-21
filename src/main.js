@@ -8,10 +8,10 @@ const getDataFromServer = async(url) => {
 };
 
 const getTodosWithUsers = (posts, users, commentsList) => {
-  return posts.map(item => ({
-    ...item,
-    user: users.find(elem => elem.id === item.userId),
-    comments: commentsList.filter(elem => elem.postId === item.id),
+  return posts.map(post => ({
+    ...post,
+    user: users.find(user => user.id === post.userId),
+    comments: commentsList.filter(coment => coment.postId === post.id),
   }));
 };
 
@@ -23,19 +23,21 @@ const getTodosList = async () => {
   ]);
   const postsWithComments = getTodosWithUsers(wholePosts[0], wholePosts[1], wholePosts[2]);
 
-  postsWithComments.forEach(item => {
+  postsWithComments.forEach(post => {
     table.innerHTML += `
       <tr>
         <td>
-          ${item.title}
+          ${post.title}
         </td>
         <td>
-          ${item.body}
+          ${post.body}
         </td>
         <td>
-          ${item.user.name}
+          ${post.user.name}
         </td>
-          ${item.comments.map(x => `<td>Author email: ${x.email}Comment: ${x.body}</td>`).join("")}
+          ${post.comments.map(coment => (
+            `<td>Author email: ${coment.email}Comment: ${coment.body}</td>`
+          )).join("")}
       </tr>
     `
   });
